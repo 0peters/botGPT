@@ -74,14 +74,8 @@ def handle_audio(message):
 #converter audio usando pydub
 #    sound = AudioSegment.from_ogg('audiouser.oga')
 #    sound.export('audiouser.wav', format='wav')
-#    stream = ffmpeg.input('audiouser.oga')
-#    stream = ffmpeg.output(stream, 'audiouser.wav', format='wav')
-    (
-    ffmpeg
-        .input('audiouser.oga')
-        .output('audiouser.wav', format='wav')
-        .run()
-    )
+    stream = ffmpeg.input('audiouser.oga')
+    stream = ffmpeg.output(stream, 'audiouser.wav', format='wav')
 # Converte o áudio em texto usando a função audio_to_text
     text = audio_to_text('audiouser.wav')
     if text=="":
