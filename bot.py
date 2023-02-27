@@ -5,7 +5,6 @@ from gtts import gTTS
 import speech_recognition as sr
 import os
 #import subprocess
-#import ffmpeg
 from pydub import AudioSegment
 
 # Definir token do bot do Telegram e chave de API da OpenAI
