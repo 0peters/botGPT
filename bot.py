@@ -70,7 +70,9 @@ def handle_audio(message):
 # Converte o áudio em texto usando a função audio_to_text
     text = audio_to_text('audiouser.wav')
     if text=="":
-        bot.reply_to(message, 'Não consegui entender o que você falou...')
+        bot.reply_to(message, 'Não consegui entender o que você falou...')        
+    else:
+        bot.reply_to(message, 'Você disse: ' + text)
 # Usa o ChatGPT para gerar uma resposta em texto
         response = reply_to_message(text)
         responseText = response.choices[0].text
@@ -81,11 +83,9 @@ def handle_audio(message):
 # Envia a resposta em áudio para o usuário
         audio = open(audio_file, 'rb')
         bot.send_audio(message.chat.id, audio=audio)
-        audio.close()        
-    else:
-        bot.reply_to(message, 'Você disse: ' + text)
+        audio.close()
 # Exclui o arquivo de áudio do disco
-    os.remove(audio_file)
+        os.remove(audio_file)
     os.remove('audiouser.oga')
     os.remove('audiouser.wav')
 
