@@ -3,3 +3,4 @@ openai==0.26.5
 pyTelegramBotAPI==4.10.0
 SpeechRecognition==3.9.0
 pydub==0.25.1
+ffmpeg-python
