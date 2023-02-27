@@ -5,7 +5,8 @@ from gtts import gTTS
 import speech_recognition as sr
 import os
 #import subprocess
-from pydub import AudioSegment
+import ffmpeg
+#from pydub import AudioSegment
 
 # Definir token do bot do Telegram e chave de API da OpenAI
 keybot = 'BOTTOKEN'
@@ -22,6 +23,12 @@ bot = telebot.TeleBot(TELEGRAM_BOT_TOKEN)
 # Definir a mensagem de boas-vindas do bot
 WELCOME_MESSAGE = "Olá! Eu sou o ChatGPT. Como posso ajudá-lo hoje?"
 
+# Função que convert OGA em WAV
+def ogg2wav(ofn):
+    wfn = ofn.replace('.oga','.wav')
+    x = AudioSegment.from_file(ofn)
+    x.export(wfn, format='wav') 
+    
 # Função que converte áudio em texto usando a biblioteca SpeechRecognition
 def audio_to_text(audio):
     r = sr.Recognizer()
@@ -65,8 +72,10 @@ def handle_audio(message):
 #converter audio usando ffmped    
     # subprocess.run(['ffmpeg', '-i', 'audiouser.oga', 'audiouser.wav', '-y'])  # formatting ogg file in to wav format
 #converter audio usando pydub
-    sound = AudioSegment.from_ogg('audiouser.oga')
-    sound.export('audiouser.wav', format='wav')
+#    sound = AudioSegment.from_ogg('audiouser.oga')
+#    sound.export('audiouser.wav', format='wav')
+    stream = ffmpeg.input('audiouser.oga')
+    stream = ffmpeg.output(stream, 'audiouser.wav')
 # Converte o áudio em texto usando a função audio_to_text
     text = audio_to_text('audiouser.wav')
     if text=="":
