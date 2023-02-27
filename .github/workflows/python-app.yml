@@ -8,7 +8,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    args: ['-v', '/usr/bin/ffmpeg:/usr/bin/ffmpeg']
+    container:
+      image: ubuntu:latest
+      args: ['-v', '/usr/bin/ffmpeg:/usr/bin/ffmpeg']
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python 3.9
