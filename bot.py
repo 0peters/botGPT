@@ -71,7 +71,7 @@ def handle_audio(message):
     text = audio_to_text('audiouser.wav')
     if text=="":
         bot.reply_to(message, 'Não consegui entender o que você falou...')
-    eles:
+    else:
         bot.reply_to(message, 'Você disse: ' + text)
 # Usa o ChatGPT para gerar uma resposta em texto
     response = reply_to_message(text)
