@@ -69,7 +69,7 @@ def handle_audio(message):
     sound.export('audiouser.wav', format='wav')
 # Converte o áudio em texto usando a função audio_to_text
     text = audio_to_text('audiouser.wav')
-    If text==""
+    If text=="":
         bot.reply_to(message, 'Não consegui entender o que você falou...')
     eles:
         bot.reply_to(message, 'Você disse: ' + text)
