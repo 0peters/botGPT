@@ -25,10 +25,13 @@ WELCOME_MESSAGE = "Olá! Eu sou o ChatGPT. Como posso ajudá-lo hoje?"
 # Função que converte áudio em texto usando a biblioteca SpeechRecognition
 def audio_to_text(audio):
     r = sr.Recognizer()
+    try:
     with sr.AudioFile(audio) as source:
         audio_data = r.record(source)
         text = r.recognize_google(audio_data, language="pt-BR") # Ajuste o idioma de acordo com sua necessidade
         return text
+    except Exception:
+        return "Não consegui entender o que você falou..."
 
 # Definir a função de resposta do OpenAI
 def reply_to_message(message):
