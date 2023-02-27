@@ -31,7 +31,7 @@ def audio_to_text(audio):
             text = r.recognize_google(audio_data, language="pt-BR") # Ajuste o idioma de acordo com sua necessidade
             return text
     except Exception:
-        return "Não consegui entender o que você falou..."
+        return ""
 
 # Definir a função de resposta do OpenAI
 def reply_to_message(message):
@@ -69,7 +69,10 @@ def handle_audio(message):
     sound.export('audiouser.wav', format='wav')
 # Converte o áudio em texto usando a função audio_to_text
     text = audio_to_text('audiouser.wav')
-    bot.reply_to(message, 'Você disse: ' + text)
+    If text==""
+        bot.reply_to(message, 'Não consegui entender o que você falou...')
+    eles:
+        bot.reply_to(message, 'Você disse: ' + text)
 # Usa o ChatGPT para gerar uma resposta em texto
     response = reply_to_message(text)
     responseText = response.choices[0].text
