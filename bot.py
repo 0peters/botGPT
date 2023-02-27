@@ -75,7 +75,7 @@ def handle_audio(message):
 #    sound = AudioSegment.from_ogg('audiouser.oga')
 #    sound.export('audiouser.wav', format='wav')
     stream = ffmpeg.input('audiouser.oga')
-    stream = ffmpeg.output(stream, format='wav, 'audiouser.wav')
+    stream = ffmpeg.output(stream, format='wav', 'audiouser.wav')
 # Converte o áudio em texto usando a função audio_to_text
     text = audio_to_text('audiouser.wav')
     if text=="":
