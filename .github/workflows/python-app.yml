@@ -25,4 +25,4 @@ jobs:
         BOTTOKEN: ${{ secrets.BOT_KEY }}
         OAITOKEN: ${{ secrets.OPENAI_KEY }}
       run: |
-        python3 ./bot.py
+        #python3 ./bot.py
