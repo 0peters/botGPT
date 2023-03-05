@@ -46,7 +46,7 @@ def reply_to_message(message):
     user_message = message
 # Enviar a mensagem do usuário para a OpenAI e obter uma resposta
     response = openai.Completion.create(
-        model="text-embedding-ada-002",
+        model="text-davinci-003",
         prompt=user_message,
         max_tokens=1024,
         n=1,
@@ -54,7 +54,6 @@ def reply_to_message(message):
         temperature=0,
     )
     return response
-#text-davinci-003
 # Função que converte texto em áudio usando a biblioteca gTTS
 def text_to_audio(text):
     tts = gTTS(text=text, lang='pt-br')
